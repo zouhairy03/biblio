@@ -3,6 +3,8 @@
 Liste des livres
 @endsection
 @section('main')
+<a href="{{route('livres.create')}}">Nouveau</a>
+
 <table class="table">
     <thead>
       <tr>
@@ -18,7 +20,6 @@ Liste des livres
     <tr>
         <th scope="row">{{$livre->id}}</th>
         <td>{{$livre->titre}}
-    {{$livre->estDispo()? "DISPO":"PAS DISPO"}}
         </td>
         <td>{{$livre->prix}}</td>
         <td>

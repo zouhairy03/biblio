@@ -3,6 +3,7 @@
 Liste des filieres
 @endsection
 @section('main')
+<a href="{{route('filieres.create')}}">Nouveau</a>
 <table class="table">
     <thead>
       <tr>

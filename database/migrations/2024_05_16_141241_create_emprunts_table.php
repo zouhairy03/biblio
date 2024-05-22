@@ -18,7 +18,7 @@ class CreateEmpruntsTable extends Migration
             $table->foreignId('livre_id')->constrained();
             $table->foreignId('etudiant_id')->constrained();
             $table->date('date_emprunt');
-            $table->date('date_retour');
+            $table->date('date_retour')->nullable();
             $table->timestamps();
         });
     }

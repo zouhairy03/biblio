@@ -1,5 +1,4 @@
-<!DO
-CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,7 +9,7 @@ CTYPE html>
 
 </head>
 <body>
-    @include('_menu')
+ @include('_menu')
     <h1 class="fs-3 text-center text-primary">@yield('titre')</h1>
 
 @if ((session('notice')))

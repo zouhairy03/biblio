@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLivresTable extends Migration
+class AddColumnToLivresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateLivresTable extends Migration
      */
     public function up()
     {
-        Schema::create('livres', function (Blueprint $table) {
-            $table->id();
-            $table->string('titre')->unique()->nullable();
-            $table->string('prix')->unique()->nullable();
-            $table->timestamps();
+        Schema::table('livres', function (Blueprint $table) {
+            //
         });
     }
 
@@ -28,6 +25,8 @@ class CreateLivresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('livres');
+        Schema::table('livres', function (Blueprint $table) {
+            //
+        });
     }
 }

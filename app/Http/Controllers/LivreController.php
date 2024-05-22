@@ -11,8 +11,7 @@ class LivreController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function index()
+     */    public function index()
     {
         $livres = Livre::all();
         return view('livres.index', compact('livres'));
@@ -63,6 +62,7 @@ class LivreController extends Controller
     {
         $livre = Livre::find($id);
         return view('livres.edit', compact('livre'));
+
     }
 
     /**
@@ -76,6 +76,8 @@ class LivreController extends Controller
     {
         $livre = Livre::find($id);
         $livre->update($request->all());
+        return redirect()->route('livres.index')->with("notice","Modification livre Ok");
+
     }
 
     /**

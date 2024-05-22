@@ -10,7 +10,15 @@ CTYPE html>
 
 </head>
 <body>
+    @include('_menu')
     <h1 class="fs-3 text-center text-primary">@yield('titre')</h1>
+
+@if ((session('notice')))
+<h3 class="alert alert-success" >
+    {{session('notice')}}
+</h3>
+
+@endif
 <div class="container">
 @yield('main')
 </div>

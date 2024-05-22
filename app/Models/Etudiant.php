@@ -30,4 +30,7 @@ public function livres(): BelongsToMany
 {
     return $this->belongsToMany(Livre::class, 'emprunts')->withPivot('date_emprunt','date_retour')->withTimestamps();
 }
+function getLivireEnCoursEmprunt() {
+
+}
 }

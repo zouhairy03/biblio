@@ -3,6 +3,8 @@
 Liste des etudiants
 @endsection
 @section('main')
+<a href="{{route('etudiants.create')}}">Nouveau</a>
+
 <table class="table">
     <thead>
       <tr>

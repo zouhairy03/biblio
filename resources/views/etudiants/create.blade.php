@@ -10,7 +10,7 @@ Nouvel etudiant
         <input type="text" name="nomprenom" class="form-control" id="nomprenom" >
       </div>
     <div class="mb-3">
-        <label for="filiere_id" class="form-label">Nom</label>
+        <label for="filiere_id" class="form-label">Filiere</label>
 <select name="filiere_id" id="filiere_id" class="form-select">
     @foreach ($filieres as $f)
 

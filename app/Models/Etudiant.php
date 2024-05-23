@@ -30,10 +30,17 @@ public function livres(): BelongsToMany
 {
     return $this->belongsToMany(Livre::class, 'emprunts')->withPivot('date_emprunt','date_retour')->withTimestamps();
 }
-    //livres emprunte par cet etudiant :
-    public function livres_empruntes_pas_retourne()  {
-        $result= $this->books()->where('date_retour',null) ->get();
-    // dd($result[0]->date_emprunt);
-    return $result;
+    //livres en cours d'enrunpt  par cet etudiant
+    public function livresEnCours(){
+return $this->livres()->where('date_retour',null)->get();
+
     }
+    //livres rendus   par cet etudiant
+    public function livresRendu(){
+return $this->livres()->whereNotNull('date_retour')->get();
+
+    }
+
+
+
 }

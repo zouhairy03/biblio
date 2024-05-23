@@ -3,7 +3,7 @@
     Emprunter un livre
 @endsection
 @section('main')
-<form action="{{route('emprunter.store')}}" method="post">
+<form action="{{route('emprunts.store')}}" method="post">
     @csrf
     <div class="mb-3">
         <label for="etudiant_id" class="form-label">Etudiant:</label>
@@ -15,7 +15,7 @@
 </select>
     </div>
     <div class="mb-3">
-        <label for="etudiant_id" class="form-label">Livre:</label>
+        <label for="liver_id" class="form-label">Livre:</label>
 <select name="livre_id" id="livre_id" class="form-select">
     @foreach ($livres as $l)
 

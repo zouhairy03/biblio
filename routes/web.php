@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EmpruntController;
 use App\Http\Controllers\EmprunterController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\FiliereController;
@@ -26,8 +27,7 @@ Route::get('/', function () {
 Route::resource('filieres', FiliereController::class);
 Route::resource('etudiants', EtudiantController::class);
 Route::resource('livres', LivreController::class);
+Route::get('/emprunter',[EmpruntController::class,'create'] )->name('emprunts.create');
+Route::post('/emprunter',[EmpruntController::class,'store'] )->name('emprunts.store');
 //affiche la page emprunt
-Route::get('/emprunter', [EmprunterController::class, 'emprunter'])->name('emprunter.create');
-// traite le form d'emprunt
-Route::post('/emprunter', [EmprunterController::class, 'borrow'])->name('emprunter.store');
 

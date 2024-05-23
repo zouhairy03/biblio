@@ -1,39 +1,20 @@
 @extends('template')
 @section('titre')
-    Details de la etudiant {{$etudiant->nom}}
+    Details de la etudiant {{ $etudiant->nomprenom }} <br>
+    Filiere : {{ $etudiant->filiere->nom }}
+
+    <h2>Les livres en cours 'emprunts  {{ $etudiant->nomprenom }} sont : </h2>
+    @foreach ($etudiant->livresEnCours() as $l)
+        <li>
+            {{ $l->titre }} emprunte le : {{ $l->pivot->date_emprunt }}
+        </li>
+    @endforeach
+    <h2>Les livres rendus par   {{ $etudiant->nomprenom }} sont : </h2>
+    @foreach ($etudiant->livresRendu() as $l)
+        <li>
+            {{ $l->titre }} rendu le : {{ $l->pivot->date_emprunt }}
+        </li>
+    @endforeach
 @endsection
 @section('main')
-<ul>
-    <li>Nom : {{$etudiant->nomprenom}}</li>
-    <li>Filiere : {{$etudiant->filiere->nom}}</li>
-
-
-</ul>
-<h2>Les livres en cours d'emprunt par {{$etudiant->nomprenom}}</h2>
-<hr>
-@foreach ($etudiant->livres_empruntes_pas_retourne() as $el)
-<li>{{$el->created_at  }}</li>
-@endforeach
-
-<hr>
-@forelse ($etudiant->livres as $l )
-@if (!$l->pivot->date_retour)
-<li>Titre : {{$l->titre}}</li>
-<li>Date d'emprunt {{$l->pivot->date_emprunt}}</li>
-<li>Date de retour {{($l->pivot->date_retour)? $l->pivot->date_retour : 'Non renvoyé'}}</li>
-
-@endif
-@empty
-<h2>Aucun etudiant dans cette etudiant</h2>
-@endforelse
-<h2>les livres empruntes et rendus</h2>
-@forelse ($etudiant->livres as $l )
-@if ($l->pivot->date_retour)
-<li>Titre : {{$l->titre}}</li>
-<li>Date d'emprunt {{$l->pivot->date_emprunt}}</li>
-<li>Date de retour {{($l->pivot->date_retour)? $l->pivot->date_retour : 'Non renvoyé'}}</li>
-@endif
-@empty
-<h2>Aucun etudiant dans cette etudiant</h2>
-@endforelse
 @endsection

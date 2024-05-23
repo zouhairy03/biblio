@@ -15,6 +15,9 @@
           <li class="nav-item">
             <a class="nav-link {{(Route::currentRouteName()=='etudiants.index')? 'active':'' }}" href="{{route('etudiants.index')}}">Etudiants</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{(Route::currentRouteName()=='emprunts.create')? 'active':'' }}" href="{{route('emprunts.create')}}">Emprunter</a>
+          </li>
 
         </ul>
       </div>

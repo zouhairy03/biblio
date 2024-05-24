@@ -1,20 +1,23 @@
+<!-- etudiants.show.blade.php -->
 @extends('template')
-@section('titre')
-    Details de la etudiant {{ $etudiant->nomprenom }} <br>
-    Filiere : {{ $etudiant->filiere->nom }}
 
-    <h2>Les livres en cours 'emprunts  {{ $etudiant->nomprenom }} sont : </h2>
-    @foreach ($etudiant->livresEnCours() as $l)
-        <li>
-            {{ $l->titre }} emprunte le : {{ $l->pivot->date_emprunt }}
-        </li>
-    @endforeach
-    <h2>Les livres rendus par   {{ $etudiant->nomprenom }} sont : </h2>
-    @foreach ($etudiant->livresRendu() as $l)
-        <li>
-            {{ $l->titre }} rendu le : {{ $l->pivot->date_emprunt }}
-        </li>
-    @endforeach
+@section('titre')
+    Détails de l'étudiant {{ $etudiant->nomprenom }}
 @endsection
+
 @section('main')
+    <ul>
+        <li>Nom et prénom : {{ $etudiant->nomprenom }}</li>
+        <li>Filière : {{ $etudiant->filiere->nom }}</li>
+        <li>Date de création : {{ $etudiant->created_at }}</li>
+    </ul>
+
+    <h2>Les livres empruntés par {{ $etudiant->nomprenom }} :</h2>
+    <ul>
+        @forelse ($etudiant->livresEnCours() as $l)
+            <li>{{ $l->titre }} emprunté le : {{ $l->pivot->date_emprunt }}</li>
+        @empty
+            <h3>Aucun livre emprunté.</h3>
+        @endforelse
+    </ul>
 @endsection
